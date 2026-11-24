@@ -1,0 +1,1898 @@
+html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Karkaba | ستريت وير بهوية مصرية عصرية</title>
+
+    <!-- Fonts for Arabic, English, and French -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Changa:wght@700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Neo-Brutalist Design Tokens -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'Space Grotesk', 'sans-serif'],
+                        display: ['Changa', 'Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        cream: '#F4F3EE',
+                        charcoal: '#121212',
+                        lime: '#CCFF00',
+                        blaze: '#FF4D00',
+                        concrete: '#E2E0D8'
+                    },
+                    boxShadow: {
+                        'brutal': '5px 5px 0px 0px #121212',
+                        'brutal-sm': '3px 3px 0px 0px #121212',
+                        'brutal-lg': '8px 8px 0px 0px #121212',
+                        'brutal-lime': '5px 5px 0px 0px #CCFF00',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Subtle blueprint grid background for light mode */
+        body {
+            background-color: #F4F3EE;
+            color: #121212;
+            background-image:
+                linear-gradient(to right, rgba(18, 18, 18, 0.045) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(18, 18, 18, 0.045) 1px, transparent 1px);
+            background-size: 32px 32px;
+            overflow-x: hidden;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        /* High-contrast Neo-Brutalist Dark Mode across page, cards, drawers, and modals */
+        html.dark body {
+            background-color: #09090b;
+            color: #F4F3EE;
+            background-image:
+                linear-gradient(to right, rgba(204, 255, 0, 0.055) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(204, 255, 0, 0.055) 1px, transparent 1px);
+        }
+
+        html.dark header,
+        html.dark footer {
+            background-color: rgba(14, 14, 18, 0.96) !important;
+            color: #F4F3EE;
+        }
+
+        html.dark .bg-cream {
+            background-color: #131318 !important;
+            color: #F4F3EE !important;
+        }
+
+        html.dark .bg-white,
+        html.dark .bg-white\/95 {
+            background-color: #1a1a22 !important;
+            color: #F4F3EE !important;
+        }
+
+        html.dark .bg-concrete {
+            background-color: #252530 !important;
+            color: #F4F3EE !important;
+        }
+
+        html.dark .text-charcoal {
+            color: #F4F3EE !important;
+        }
+
+        html.dark .text-gray-800,
+        html.dark .text-gray-700,
+        html.dark .text-gray-600 {
+            color: #d1d0ca !important;
+        }
+
+        html.dark input {
+            background-color: #1a1a22 !important;
+            color: #F4F3EE !important;
+        }
+
+        /* Keep lime badges & buttons high-contrast dark text in dark mode */
+        html.dark .bg-lime,
+        html.dark .bg-lime * {
+            color: #121212 !important;
+        }
+
+        html.dark .bg-charcoal {
+            background-color: #070709 !important;
+        }
+
+        /* Marquee motion for RTL (Arabic) */
+        @keyframes marquee-rtl {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(50%); }
+        }
+
+        /* Marquee motion for LTR (English & French) */
+        @keyframes marquee-ltr {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0%); }
+        }
+
+        .animate-marquee-rtl {
+            display: flex;
+            width: max-content;
+            animation: marquee-rtl 22s linear infinite;
+        }
+
+        html[dir="ltr"] .animate-marquee-rtl {
+            animation-name: marquee-ltr;
+        }
+
+        .animate-marquee-rtl:hover {
+            animation-play-state: paused;
+        }
+
+        /* Neo-Brutalist button press & lift */
+        .btn-brutal {
+            transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1);
+        }
+        .btn-brutal:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px 0px #121212;
+        }
+        .btn-brutal:active {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px 0px #121212;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .sticker-badge {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: rotate(-6deg) translateY(0px); }
+            50% { transform: rotate(-3deg) translateY(-6px); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-lime selection:text-charcoal">
+
+    <!-- Top Promo Strip -->
+    <div class="bg-charcoal text-cream text-xs sm:text-sm py-2 px-4 text-center font-bold border-b-2 border-charcoal flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-lime animate-ping"></span>
+        <span id="top-promo-text">استخدم كود <span class="bg-lime text-charcoal px-1.5 py-0.5 rounded mx-1 font-black">KARKABA10</span> لخصم 10% على أول أوردر!</span>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b-2 border-charcoal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-3 gap-2">
+
+                <!-- Left/Start Cluster: Hamburger Menu + Dark Mode Button directly beneath it -->
+                <div class="flex flex-col items-start gap-1.5 shrink-0">
+                    <button id="mobile-menu-btn" type="button" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl border-2 border-charcoal bg-white shadow-brutal-sm active:translate-y-0.5">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <button id="dark-mode-toggle" type="button" aria-label="Toggle Dark Mode" class="flex items-center gap-1.5 px-3 py-1 rounded-xl border-2 border-charcoal bg-white hover:bg-lime text-xs font-black shadow-brutal-sm transition-colors">
+                        <i id="dark-mode-icon" data-lucide="moon" class="w-3.5 h-3.5"></i>
+                        <span id="dark-mode-label">Dark</span>
+                    </button>
+                </div>
+
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-2 group shrink-0">
+                    <div class="relative bg-charcoal text-lime px-4 py-1.5 rounded-xl border-2 border-charcoal shadow-brutal-sm transform -rotate-2 group-hover:rotate-0 transition-transform">
+                        <span class="font-display font-extrabold text-2xl sm:text-3xl tracking-wider">Karkaba</span>
+                        <span class="absolute -top-2.5 -end-2.5 bg-blaze text-white text-[10px] font-black px-1.5 py-0.5 rounded-md border border-charcoal transform rotate-12">26'</span>
+                    </div>
+                    <span id="brand-tagline" class="hidden lg:inline-block text-xs font-bold bg-concrete px-2 py-1 rounded-lg border border-charcoal">أصل الستريت وير™</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-5 lg:gap-6 font-bold text-sm lg:text-base">
+                    <a id="nav-new" href="#collection" onclick="filterByCategory('all')" class="hover:text-blaze transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:start-0 after:w-0 after:h-0.5 after:bg-charcoal hover:after:w-full after:transition-all">الجديد 🔥</a>
+                    <a id="nav-tshirts" href="#collection" onclick="filterByCategory('tshirts')" class="hover:text-blaze transition-colors">تيشيرتات</a>
+                    <a id="nav-hoodies" href="#collection" onclick="filterByCategory('hoodies')" class="hover:text-blaze transition-colors">هوديز</a>
+                    <a id="nav-pants" href="#collection" onclick="filterByCategory('pants')" class="hover:text-blaze transition-colors">بناطيل</a>
+                    <a id="nav-accessories" href="#collection" onclick="filterByCategory('accessories')" class="hover:text-blaze transition-colors">إكسسوارات</a>
+                    <a id="nav-story" href="#manifesto" class="hover:text-blaze transition-colors">قصتنا</a>
+                </nav>
+
+                <!-- Right/End Cluster: Language Switcher & Search on Top, Cart Button Below -->
+                <div class="flex flex-col items-end gap-2 shrink-0">
+                    <div class="flex items-center gap-2">
+                        <div id="lang-switcher" role="group" aria-label="Language Switcher" class="flex items-center bg-white rounded-xl border-2 border-charcoal p-0.5 shadow-brutal-sm text-xs font-black">
+                            <button type="button" data-lang="ar" class="lang-btn px-2 py-1 rounded-lg bg-charcoal text-lime transition-colors">AR</button>
+                            <button type="button" data-lang="en" class="lang-btn px-2 py-1 rounded-lg text-charcoal hover:bg-lime/60 transition-colors">EN</button>
+                            <button type="button" data-lang="fr" class="lang-btn px-2 py-1 rounded-lg text-charcoal hover:bg-lime/60 transition-colors">FR</button>
+                        </div>
+
+                        <button id="search-toggle-btn" type="button" aria-label="Search" class="p-2 rounded-xl border-2 border-charcoal bg-white hover:bg-lime transition-colors shadow-brutal-sm">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <button id="cart-open-btn" type="button" aria-label="Shopping Cart" class="relative flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-2 border-charcoal bg-lime hover:bg-charcoal hover:text-lime transition-colors shadow-brutal-sm font-black">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        <span id="cart-label" class="hidden sm:inline text-xs">السلة</span>
+                        <span id="cart-badge" class="bg-charcoal text-lime text-xs font-black w-5 h-5 rounded-full flex items-center justify-center border border-charcoal">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Collapsible Live Search Bar -->
+            <div id="search-bar-container" class="hidden pb-4 transition-all">
+                <div class="relative flex items-center">
+                    <input type="text" id="search-input" placeholder="بتدور على إيه في Karkaba؟ (مثال: هودي، كارجو، كيميت...)" class="w-full px-4 py-3 pe-11 rounded-xl border-2 border-charcoal bg-white font-bold focus:outline-none focus:ring-2 focus:ring-blaze shadow-brutal-sm">
+                    <i data-lucide="search" class="w-5 h-5 end-3.5 absolute text-gray-500"></i>
+                    <button id="clear-search-btn" type="button" class="hidden start-3 absolute text-xs font-bold bg-concrete px-2.5 py-1 rounded-lg border border-charcoal">مسح</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-t-2 border-charcoal px-4 py-4 space-y-2 font-bold">
+            <a id="mob-new" href="#collection" onclick="filterByCategory('all'); toggleMobileMenu()" class="block p-2.5 rounded-xl hover:bg-lime border border-transparent hover:border-charcoal">الجديد 🔥</a>
+            <a id="mob-tshirts" href="#collection" onclick="filterByCategory('tshirts'); toggleMobileMenu()" class="block p-2.5 rounded-xl hover:bg-lime border border-transparent hover:border-charcoal">تيشيرتات</a>
+            <a id="mob-hoodies" href="#collection" onclick="filterByCategory('hoodies'); toggleMobileMenu()" class="block p-2.5 rounded-xl hover:bg-lime border border-transparent hover:border-charcoal">هوديز</a>
+            <a id="mob-pants" href="#collection" onclick="filterByCategory('pants'); toggleMobileMenu()" class="block p-2.5 rounded-xl hover:bg-lime border border-transparent hover:border-charcoal">بناطيل</a>
+            <a id="mob-accessories" href="#collection" onclick="filterByCategory('accessories'); toggleMobileMenu()" class="block p-2.5 rounded-xl hover:bg-lime border border-transparent hover:border-charcoal">إكسسوارات</a>
+            <a id="mob-story" href="#manifesto" onclick="toggleMobileMenu()" class="block p-2.5 rounded-xl hover:bg-lime border border-transparent hover:border-charcoal">قصتنا</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-8 pb-16 md:pt-14 md:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+                <div class="lg:col-span-7 space-y-6 text-start z-10">
+                    <div class="inline-flex items-center gap-2 bg-white border-2 border-charcoal px-4 py-1.5 rounded-full shadow-brutal-sm transform rotate-1">
+                        <span class="w-2.5 h-2.5 rounded-full bg-blaze"></span>
+                        <span id="hero-badge" class="text-xs sm:text-sm font-extrabold tracking-wide">كولكشن شتاء / ربيع 2026 وصل!</span>
+                    </div>
+
+                    <h1 class="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[1.12] text-charcoal">
+                        <span id="hero-title-line1">جذور أصيلة..</span>
+                        <span class="block mt-2 relative inline-block">
+                            <span id="hero-title-highlight" class="relative z-10 bg-lime px-4 py-1 rounded-2xl border-2 border-charcoal shadow-brutal inline-block transform -rotate-1">بروح ستريت جريئة</span>
+                        </span>
+                    </h1>
+
+                    <p id="hero-subtitle" class="text-lg sm:text-xl text-gray-800 font-semibold max-w-2xl leading-relaxed">
+                        تصميمات ستريت وير من Karkaba بروح مصرية بتكسر القوالب التقليدية. قصّات أوفرسايز مريحة، خامات تقيلة تعيش، وتفاصيل تخلي ستايلك يتكلم عنك في أي مكان.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#collection" class="btn-brutal inline-flex items-center gap-3 bg-charcoal text-lime font-black text-lg px-8 py-4 rounded-2xl border-2 border-charcoal shadow-brutal">
+                            <span id="hero-cta-primary">اكتشف الكولكشن</span>
+                            <i data-lucide="arrow-down-left" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#manifesto" class="btn-brutal inline-flex items-center gap-2 bg-white text-charcoal font-extrabold text-lg px-6 py-4 rounded-2xl border-2 border-charcoal shadow-brutal">
+                            <span id="hero-cta-secondary">إيه حكاية Karkaba؟</span>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3 sm:gap-6 pt-6 max-w-lg">
+                        <div class="bg-white p-3 rounded-2xl border-2 border-charcoal shadow-brutal-sm text-center">
+                            <div class="font-display font-black text-2xl sm:text-3xl text-blaze">100%</div>
+                            <div id="stat-1-label" class="text-xs font-bold mt-0.5">قطن مصري فاخر</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-2xl border-2 border-charcoal shadow-brutal-sm text-center transform rotate-1">
+                            <div id="stat-2-val" class="font-display font-black text-2xl sm:text-3xl text-charcoal">LIMITED</div>
+                            <div id="stat-2-label" class="text-xs font-bold mt-0.5">إصدارات محدودة</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-2xl border-2 border-charcoal shadow-brutal-sm text-center transform -rotate-1">
+                            <div class="font-display font-black text-2xl sm:text-3xl text-charcoal">48h</div>
+                            <div id="stat-3-label" class="text-xs font-bold mt-0.5">شحن لكل مصر</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento Visual Collage -->
+                <div class="lg:col-span-5 relative">
+                    <div class="grid grid-cols-2 gap-4 relative">
+                        <div id="hero-sticker" class="sticker-badge absolute -top-6 -end-4 z-20 bg-blaze text-white font-display font-extrabold text-sm sm:text-base px-4 py-2 rounded-2xl border-2 border-charcoal shadow-brutal">
+                            ستايل ميتكررش ⚡
+                        </div>
+
+                        <div class="col-span-2 bg-white p-3 rounded-3xl border-2 border-charcoal shadow-brutal-lg transform rotate-1 hover:rotate-0 transition-transform">
+                            <div class="relative h-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-charcoal bg-concrete">
+                                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80"
+                                     onerror="this.src='https://placehold.co/800x600/121212/CCFF00?text=Karkaba+STREETWEAR'"
+                                     alt="Karkaba Streetwear"
+                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                <div id="hero-drop-tag" class="absolute bottom-3 end-3 bg-charcoal/90 backdrop-blur-sm text-lime text-xs font-black px-3 py-1.5 rounded-xl border border-lime">
+                                    DROP 04 // Karkaba
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-lime p-3 rounded-3xl border-2 border-charcoal shadow-brutal transform -rotate-2 hover:rotate-0 transition-transform">
+                            <div class="h-36 sm:h-44 rounded-2xl overflow-hidden border-2 border-charcoal bg-white">
+                                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=500&q=80"
+                                     onerror="this.src='https://placehold.co/500x500/CCFF00/121212?text=OVERSIZED'"
+                                     alt="Karkaba Oversized Tee"
+                                     class="w-full h-full object-cover">
+                            </div>
+                            <p id="bento-card-2-text" class="font-black text-xs sm:text-sm mt-2 text-center">قصّات أوفرسايز أصلية</p>
+                        </div>
+
+                        <div class="bg-charcoal text-cream p-4 rounded-3xl border-2 border-charcoal shadow-brutal flex flex-col justify-between transform rotate-2 hover:rotate-0 transition-transform">
+                            <div class="flex justify-between items-start">
+                                <span id="bento-card-3-badge" class="bg-blaze text-white text-xs font-black px-2.5 py-1 rounded-lg">جديد</span>
+                                <i data-lucide="sparkles" class="w-6 h-6 text-lime"></i>
+                            </div>
+                            <div>
+                                <p id="bento-card-3-title" class="font-display font-extrabold text-lg sm:text-xl text-lime leading-snug">البس اللي يعبر عن هويتك!</p>
+                                <p id="bento-card-3-sub" class="text-xs text-gray-300 mt-1">مقاسات من S لـ XL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Ticker -->
+    <div class="bg-lime border-y-2 border-charcoal py-3.5 overflow-hidden select-none">
+        <div id="marquee-track" class="animate-marquee-rtl flex items-center gap-8 font-display font-extrabold text-lg sm:text-xl text-charcoal"></div>
+    </div>
+
+    <!-- Category Filter & Product Grid -->
+    <section id="collection" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+                <span id="collection-badge" class="inline-block bg-blaze text-white text-xs font-black px-3 py-1 rounded-lg border-2 border-charcoal mb-3 transform -rotate-1">تشكيلة 2026</span>
+                <h2 id="collection-title" class="font-display font-extrabold text-4xl sm:text-5xl text-charcoal">اختار قطعتك من Karkaba ✨</h2>
+            </div>
+
+            <div id="category-tabs" class="flex flex-wrap gap-2.5">
+                <button type="button" data-cat="all" class="filter-btn active px-5 py-2.5 rounded-xl border-2 border-charcoal font-black text-sm bg-charcoal text-lime shadow-brutal-sm transition-all">الكل (8)</button>
+                <button type="button" data-cat="hoodies" class="filter-btn px-5 py-2.5 rounded-xl border-2 border-charcoal font-bold text-sm bg-white hover:bg-lime transition-all">هوديز</button>
+                <button type="button" data-cat="tshirts" class="filter-btn px-5 py-2.5 rounded-xl border-2 border-charcoal font-bold text-sm bg-white hover:bg-lime transition-all">تيشيرتات</button>
+                <button type="button" data-cat="pants" class="filter-btn px-5 py-2.5 rounded-xl border-2 border-charcoal font-bold text-sm bg-white hover:bg-lime transition-all">بناطيل</button>
+                <button type="button" data-cat="accessories" class="filter-btn px-5 py-2.5 rounded-xl border-2 border-charcoal font-bold text-sm bg-white hover:bg-lime transition-all">إكسسوارات</button>
+            </div>
+        </div>
+
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7"></div>
+
+        <div id="no-results" class="hidden text-center py-16 bg-white rounded-3xl border-2 border-charcoal shadow-brutal my-8">
+            <div class="text-5xl mb-4">🧐</div>
+            <h3 id="no-results-title" class="font-display font-extrabold text-2xl mb-2">ملقيناش حاجة بالاسم ده في Karkaba!</h3>
+            <p id="no-results-sub" class="text-gray-600 font-semibold mb-6">جرب تدور بكلمة تانية أو شوف كل الكولكشن.</p>
+            <button id="reset-filters-btn" type="button" onclick="resetFilters()" class="btn-brutal bg-lime text-charcoal font-black px-6 py-3 rounded-xl border-2 border-charcoal shadow-brutal-sm">عرض كل المنتجات</button>
+        </div>
+    </section>
+
+    <!-- Brand Manifesto -->
+    <section id="manifesto" class="py-16 md:py-24 bg-charcoal text-cream border-y-2 border-charcoal relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-6 space-y-6 text-start">
+                    <div id="manifesto-badge" class="inline-block bg-lime text-charcoal font-black text-sm px-4 py-1.5 rounded-xl border-2 border-lime transform rotate-1">
+                        فلسفة البراند // MANIFESTO
+                    </div>
+                    <h2 id="manifesto-title" class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-tight">
+                        ليه اسمنا <span class="text-lime underline decoration-blaze decoration-4 underline-offset-8">Karkaba</span>؟
+                    </h2>
+                    <p id="manifesto-p1" class="text-lg text-gray-300 leading-relaxed font-medium">
+                        كلمة "كاميت" (Kemet) تعبر عن الأرض الخصبة في الحضارة المصرية القديمة، واللي بنحولها في Karkaba إلى رؤية ستريت وير حديثة بتكسر ملل اللبس التقليدي المتشابه.
+                    </p>
+                    <p id="manifesto-p2" class="text-lg text-gray-300 leading-relaxed font-medium">
+                        كل قطعة بنصممها بتجمع بين راحة اللبس اليومي، جودة التقفيل العالية، وجرأة الرسومات اللي بتحكي قصة جيل كامل مش خايف يبان على طبيعته.
+                    </p>
+
+                    <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white/5 border border-white/20 p-4 rounded-2xl">
+                            <div id="pillar-1-title" class="text-lime font-display font-extrabold text-xl mb-1">01. خامات تعيش</div>
+                            <p id="pillar-1-desc" class="text-sm text-gray-300">قطن مصري معالج ضد الانكماش والوبرة، وطباعة سيلك سكرين بتستحمل الغسيل.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/20 p-4 rounded-2xl">
+                            <div id="pillar-2-title" class="text-blaze font-display font-extrabold text-xl mb-1">02. كميات محدودة</div>
+                            <p id="pillar-2-desc" class="text-sm text-gray-300">كل دروب بينزل بعدد قطع معين ومش بيتكرر تاني عشان تفضل مميز.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4 sm:gap-6">
+                    <div class="bg-lime text-charcoal p-6 rounded-3xl border-2 border-white shadow-brutal transform -rotate-2 flex flex-col justify-between h-56">
+                        <i data-lucide="flame" class="w-10 h-10 text-blaze fill-blaze"></i>
+                        <div>
+                            <h3 id="bento-m1-title" class="font-display font-extrabold text-2xl">صُنع في مصر</h3>
+                            <p id="bento-m1-desc" class="text-sm font-bold mt-1">بأيادي ومصممين مصريين 100% بمعايير عالمية.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-blaze text-white p-6 rounded-3xl border-2 border-white shadow-brutal transform rotate-2 translate-y-4 flex flex-col justify-between h-56">
+                        <i data-lucide="palette" class="w-10 h-10 text-lime"></i>
+                        <div>
+                            <h3 id="bento-m2-title" class="font-display font-extrabold text-2xl">جرافيك جريء</h3>
+                            <p id="bento-m2-desc" class="text-sm font-bold mt-1">رسومات حصرية مستوحاة من التراث وثقافة الشارع المعاصر.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-span-2 bg-cream text-charcoal p-6 rounded-3xl border-2 border-lime shadow-brutal mt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <span id="bento-m3-tag" class="text-xs font-black bg-charcoal text-lime px-2.5 py-1 rounded-md">مجتمع Karkaba</span>
+                            <h3 id="bento-m3-title" class="font-display font-extrabold text-2xl mt-2">أكتر من +15,000 قطعة وصلت لصحابها</h3>
+                        </div>
+                        <a id="bento-m3-cta" href="#collection" class="btn-brutal whitespace-nowrap bg-lime text-charcoal font-black px-5 py-3 rounded-xl border-2 border-charcoal shadow-brutal-sm">
+                            انضم للعيلة
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cream border-t-2 border-charcoal pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b-2 border-charcoal">
+
+                <div class="lg:col-span-5 space-y-5">
+                    <div class="inline-block bg-charcoal text-lime px-4 py-1.5 rounded-xl border-2 border-charcoal shadow-brutal-sm transform -rotate-2">
+                        <span class="font-display font-extrabold text-3xl tracking-wider">Karkaba</span>
+                    </div>
+                    <p id="footer-newsletter-desc" class="font-bold text-gray-800 max-w-md">
+                        اشترك في نشرة Karkaba عشان يوصلك ميعاد الدروب الجديد قبل أي حد، وكمان كود خصم خاص ليك!
+                    </p>
+                    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2.5 max-w-md">
+                        <input id="newsletter-email" type="email" required placeholder="اكتب إيميلك هنا..." class="flex-1 px-4 py-3 rounded-xl border-2 border-charcoal bg-white font-bold focus:outline-none focus:ring-2 focus:ring-blaze">
+                        <button id="newsletter-submit-btn" type="submit" class="btn-brutal bg-lime text-charcoal font-black px-6 py-3 rounded-xl border-2 border-charcoal shadow-brutal-sm">
+                            اشترك الآن
+                        </button>
+                    </form>
+                </div>
+
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 id="footer-quick-links-title" class="font-display font-extrabold text-xl">تصفح سريع</h4>
+                    <ul class="space-y-2 font-bold text-gray-700">
+                        <li><a id="f-link-all" href="#collection" onclick="filterByCategory('all')" class="hover:text-blaze">كل المنتجات</a></li>
+                        <li><a id="f-link-hoodies" href="#collection" onclick="filterByCategory('hoodies')" class="hover:text-blaze">هوديز شتاء 2026</a></li>
+                        <li><a id="f-link-tshirts" href="#collection" onclick="filterByCategory('tshirts')" class="hover:text-blaze">تيشيرتات أوفرسايز</a></li>
+                        <li><a id="f-link-pants" href="#collection" onclick="filterByCategory('pants')" class="hover:text-blaze">بناطيل كارجو</a></li>
+                        <li><a id="f-link-story" href="#manifesto" class="hover:text-blaze">قصة Karkaba</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-4 space-y-4">
+                    <h4 id="footer-contact-title" class="font-display font-extrabold text-xl">تواصل معانا</h4>
+                    <p id="footer-contact-sub" class="font-bold text-gray-700 text-sm">عندك سؤال عن المقاسات أو الأوردر؟ فريقنا موجود دايماً.</p>
+                    <div class="flex items-center gap-3">
+                        <a href="#" aria-label="Instagram" class="p-3 bg-white rounded-xl border-2 border-charcoal shadow-brutal-sm hover:bg-lime transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="p-3 bg-white rounded-xl border-2 border-charcoal shadow-brutal-sm hover:bg-lime transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" aria-label="TikTok" class="p-3 bg-white rounded-xl border-2 border-charcoal shadow-brutal-sm hover:bg-lime transition-colors">
+                            <i data-lucide="music-2" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div class="pt-2 flex flex-wrap gap-2 text-xs font-extrabold">
+                        <span id="pay-cod" class="bg-white px-3 py-1.5 rounded-lg border border-charcoal">💵 الدفع عند الاستلام</span>
+                        <span id="pay-card" class="bg-white px-3 py-1.5 rounded-lg border border-charcoal">💳 فيزا / ميزة / انستاباي</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-bold text-gray-700">
+                <p id="footer-copyright">© 2026 Karkaba. جميع الحقوق محفوظة.</p>
+
+                <div role="group" aria-label="Footer Language Switcher" class="flex items-center gap-2 bg-white rounded-xl border-2 border-charcoal p-1 shadow-brutal-sm text-xs font-black">
+                    <span id="lang-switcher-label" class="px-2 text-gray-600">اللغة:</span>
+                    <button type="button" data-lang="ar" class="lang-btn px-2.5 py-1.5 rounded-lg bg-charcoal text-lime transition-colors">AR</button>
+                    <button type="button" data-lang="en" class="lang-btn px-2.5 py-1.5 rounded-lg text-charcoal hover:bg-lime/60 transition-colors">EN</button>
+                    <button type="button" data-lang="fr" class="lang-btn px-2.5 py-1.5 rounded-lg text-charcoal hover:bg-lime/60 transition-colors">FR</button>
+                </div>
+
+                <p id="footer-made-in">صُمم بشغف وهوية عصرية في مصر 🇪🇬</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div id="quick-view-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-charcoal/75 backdrop-blur-sm">
+        <div class="bg-cream w-full max-w-3xl rounded-3xl border-2 border-charcoal shadow-brutal-lg overflow-hidden relative">
+            <button id="close-quick-view" type="button" aria-label="Close Quick View" class="absolute top-4 end-4 z-10 p-2 bg-white rounded-xl border-2 border-charcoal shadow-brutal-sm hover:bg-blaze hover:text-white transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="quick-view-content" class="grid grid-cols-1 md:grid-cols-2"></div>
+        </div>
+    </div>
+
+    <!-- Slide-Out Cart Drawer -->
+    <div id="cart-overlay" class="fixed inset-0 z-50 hidden bg-charcoal/70 backdrop-blur-xs transition-opacity"></div>
+    <aside id="cart-drawer" class="fixed top-0 end-0 z-50 h-full w-full sm:w-[440px] bg-cream border-s-2 border-charcoal shadow-2xl transition-transform duration-300 flex flex-col">
+        <div class="p-5 bg-charcoal text-cream flex items-center justify-between border-b-2 border-charcoal">
+            <div class="flex items-center gap-2.5">
+                <i data-lucide="shopping-bag" class="w-6 h-6 text-lime"></i>
+                <h3 id="drawer-title" class="font-display font-extrabold text-2xl">سلة Karkaba</h3>
+                <span id="drawer-count" class="bg-lime text-charcoal text-xs font-black px-2.5 py-0.5 rounded-full">0</span>
+            </div>
+            <button id="cart-close-btn" type="button" aria-label="Close Cart" class="p-2 bg-white/10 hover:bg-blaze text-white rounded-xl transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+
+        <div id="cart-footer" class="p-5 bg-white border-t-2 border-charcoal space-y-4">
+            <div>
+                <div class="flex gap-2">
+                    <input type="text" id="promo-input" placeholder="كود الخصم (جرب KARKABA10)" class="flex-1 px-3.5 py-2.5 rounded-xl border-2 border-charcoal text-sm font-bold uppercase focus:outline-none focus:ring-2 focus:ring-lime">
+                    <button id="apply-promo-btn" type="button" class="px-4 py-2.5 rounded-xl border-2 border-charcoal bg-concrete hover:bg-lime font-black text-sm transition-colors">تطبيق</button>
+                </div>
+                <p id="promo-message" class="text-xs font-bold mt-1.5 hidden"></p>
+            </div>
+
+            <div class="space-y-1.5 text-sm font-bold border-t border-dashed border-charcoal pt-3">
+                <div class="flex justify-between">
+                    <span id="label-subtotal" class="text-gray-600">المجموع الفرعي:</span>
+                    <span id="cart-subtotal">0 ج.م</span>
+                </div>
+                <div id="discount-row" class="hidden justify-between text-blaze">
+                    <span id="label-discount">الخصم (10%):</span>
+                    <span id="cart-discount">- 0 ج.م</span>
+                </div>
+                <div class="flex justify-between">
+                    <span id="label-shipping" class="text-gray-600">الشحن:</span>
+                    <span id="cart-shipping">60 ج.م</span>
+                </div>
+                <div class="flex justify-between text-lg font-black pt-2 border-t border-charcoal">
+                    <span id="label-total">الإجمالي النهائي:</span>
+                    <span id="cart-total" class="bg-lime px-2 py-0.5 rounded-lg border border-charcoal">0 ج.م</span>
+                </div>
+            </div>
+
+            <button id="checkout-btn" type="button" class="btn-brutal w-full py-4 rounded-2xl bg-charcoal text-lime font-display font-extrabold text-lg border-2 border-charcoal shadow-brutal flex items-center justify-center gap-2">
+                <span id="checkout-btn-text">إتمام الأوردر دلوقتي</span>
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Customer Details Modal -->
+    <div id="customer-details-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-charcoal/80 backdrop-blur-sm">
+        <div class="bg-cream w-full max-w-md rounded-3xl border-2 border-charcoal shadow-brutal-lg p-5 sm:p-7 space-y-4 relative">
+            <div class="flex items-start justify-between gap-3">
+                <div>
+                    <p class="text-xs font-black tracking-[0.18em] text-blaze">KARKABA CHECKOUT</p>
+                    <h3 class="font-display font-extrabold text-2xl text-charcoal mt-1">بيانات التوصيل</h3>
+                    <p class="text-sm font-bold text-gray-600 mt-1">اكتب بياناتك عشان نجهز طلبك ✦</p>
+                </div>
+                <button id="customer-details-close" type="button" aria-label="Close" class="p-2 rounded-xl border-2 border-charcoal bg-white hover:bg-lime transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <form id="customer-details-form" class="space-y-3">
+                <label class="block text-sm font-black">الاسم بالكامل
+                    <input id="customer-name" required autocomplete="name" placeholder="اسمك" class="mt-1.5 w-full px-4 py-3 rounded-xl border-2 border-charcoal bg-white font-bold focus:outline-none focus:ring-2 focus:ring-lime" />
+                </label>
+                <label class="block text-sm font-black">رقم الموبايل
+                    <input id="customer-phone" required type="tel" autocomplete="tel" placeholder="01xxxxxxxxx" class="mt-1.5 w-full px-4 py-3 rounded-xl border-2 border-charcoal bg-white font-bold focus:outline-none focus:ring-2 focus:ring-lime" />
+                </label>
+                <label class="block text-sm font-black">عنوان التوصيل بالتفصيل
+                    <textarea id="customer-address" required rows="3" autocomplete="street-address" placeholder="المحافظة، المنطقة، الشارع، رقم العمارة والشقة" class="mt-1.5 w-full px-4 py-3 rounded-xl border-2 border-charcoal bg-white font-bold resize-y focus:outline-none focus:ring-2 focus:ring-lime"></textarea>
+                </label>
+                <button type="submit" class="btn-brutal w-full py-3.5 rounded-xl bg-charcoal text-lime font-black border-2 border-charcoal shadow-brutal-sm flex items-center justify-center gap-2"><i data-lucide="message-circle" class="w-5 h-5"></i> تأكيد وتجهيز الطلب</button>
+                <p class="text-xs text-center text-gray-500 font-bold">الطلب هيتبعت على واتساب بعد ما تختار رقم الاستقبال.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-charcoal/80 backdrop-blur-sm">
+        <div class="bg-cream w-full max-w-md rounded-3xl border-2 border-charcoal shadow-brutal-lg p-6 sm:p-8 text-center space-y-5 relative">
+            <div class="w-20 h-20 bg-lime rounded-2xl border-2 border-charcoal shadow-brutal mx-auto flex items-center justify-center transform -rotate-3">
+                <i data-lucide="party-popper" class="w-10 h-10 text-charcoal"></i>
+            </div>
+            <h3 id="checkout-modal-title" class="font-display font-extrabold text-3xl text-charcoal">أوردرك اتسجل بنجاح! 🎉</h3>
+            <p id="checkout-modal-desc" class="font-bold text-gray-700 leading-relaxed">
+                شكراً ليك! فريق Karkaba بيجهز أوردرك دلوقتي وهنتواصل معاك لتأكيد ميعاد الاستلام خلال 24 ساعة.
+            </p>
+            <div class="bg-white p-4 rounded-2xl border-2 border-charcoal text-sm font-bold space-y-1">
+                <div><span id="label-order-num">رقم الطلب:</span> <span id="order-number" class="font-black text-blaze">#KMT-8492</span></div>
+                <div><span id="label-pay-method">طريقة الدفع:</span> <span id="val-pay-method" class="font-black">الدفع عند الاستلام</span></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <button id="send-order-whatsapp-1" type="button" class="btn-brutal w-full py-3 rounded-xl bg-lime text-charcoal font-black border-2 border-charcoal shadow-brutal-sm">إرسال للرقم الأول واتساب</button>
+                <button id="send-order-whatsapp-2" type="button" class="btn-brutal w-full py-3 rounded-xl bg-lime text-charcoal font-black border-2 border-charcoal shadow-brutal-sm">إرسال للرقم الثاني واتساب</button>
+            </div>
+            <button id="close-checkout-modal" type="button" class="btn-brutal w-full py-3.5 rounded-xl bg-charcoal text-lime font-black text-base border-2 border-charcoal shadow-brutal-sm">
+                رجوع للمتجر
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Toast Container -->
+    <div id="toast-container" class="fixed bottom-5 end-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <script>
+        // Translations for Arabic (AR), English (EN), and French (FR)
+        const i18n = {
+            ar: {
+                pageTitle: 'Karkaba | ستريت وير بهوية مصرية عصرية',
+                topPromo: 'استخدم كود <span class="bg-lime text-charcoal px-1.5 py-0.5 rounded mx-1 font-black">KARKABA10</span> لخصم 10% على أول أوردر!',
+                brandTagline: 'أصل الستريت وير™',
+                navNew: 'الجديد 🔥',
+                navTshirts: 'تيشيرتات',
+                navHoodies: 'هوديز',
+                navPants: 'بناطيل',
+                navAccessories: 'إكسسوارات',
+                navStory: 'قصتنا',
+                cartLabel: 'السلة',
+                searchPlaceholder: 'بتدور على إيه في Karkaba؟ (مثال: هودي، كارجو، كيميت...)',
+                clearSearch: 'مسح',
+                heroBadge: 'كولكشن شتاء / ربيع 2026 وصل!',
+                heroLine1: 'جذور أصيلة..',
+                heroHighlight: 'بروح ستريت جريئة',
+                heroSubtitle: 'تصميمات ستريت وير من Karkaba بروح مصرية بتكسر القوالب التقليدية. قصّات أوفرسايز مريحة، خامات تقيلة تعيش، وتفاصيل تخلي ستايلك يتكلم عنك في أي مكان.',
+                heroCtaPrimary: 'اكتشف الكولكشن',
+                heroCtaSecondary: 'إيه حكاية Karkaba؟',
+                stat1Label: 'قطن مصري فاخر',
+                stat2Val: 'LIMITED',
+                stat2Label: 'إصدارات محدودة',
+                stat3Label: 'شحن لكل مصر',
+                heroSticker: 'ستايل ميتكررش ⚡',
+                heroDropTag: 'DROP 04 // Karkaba',
+                bento2Text: 'قصّات أوفرسايز أصلية',
+                bento3Badge: 'جديد',
+                bento3Title: 'البس اللي يعبر عن هويتك!',
+                bento3Sub: 'مقاسات من S لـ XL',
+                marquee: [
+                    'شحن لكل المحافظات 🚚',
+                    'إصدارات محدودة 🔥',
+                    'ستايل ميتكررش ⚡',
+                    'Karkaba 2026 🎨',
+                    'دفع عند الاستلام أو أونلاين 💳',
+                    'استبدال سهل خلال 14 يوم 🔄'
+                ],
+                collectionBadge: 'تشكيلة 2026',
+                collectionTitle: 'اختار قطعتك من Karkaba ✨',
+                catAll: 'الكل (8)',
+                catHoodies: 'هوديز',
+                catTshirts: 'تيشيرتات',
+                catPants: 'بناطيل',
+                catAccessories: 'إكسسوارات',
+                noResultsTitle: 'ملقيناش حاجة بالاسم ده في Karkaba!',
+                noResultsSub: 'جرب تدور بكلمة تانية أو شوف كل الكولكشن.',
+                resetFilters: 'عرض كل المنتجات',
+                sizeLabel: 'المقاس:',
+                addToCart: 'أضف للسلة',
+                qvAddToCart: 'أضف للسلة دلوقتي',
+                qvChooseSize: 'اختار مقاسك:',
+                currency: 'ج.م',
+                manifestoBadge: 'فلسفة البراند // MANIFESTO',
+                manifestoTitle: 'ليه اسمنا <span class="text-lime underline decoration-blaze decoration-4 underline-offset-8">Karkaba</span>؟',
+                manifestoP1: 'كلمة "كاميت" (Kemet) تعبر عن الأرض الخصبة في الحضارة المصرية القديمة، واللي بنحولها في Karkaba إلى رؤية ستريت وير حديثة بتكسر ملل اللبس التقليدي المتشابه.',
+                manifestoP2: 'كل قطعة بنصممها بتجمع بين راحة اللبس اليومي، جودة التقفيل العالية، وجرأة الرسومات اللي بتحكي قصة جيل كامل مش خايف يبان على طبيعته.',
+                pillar1Title: '01. خامات تعيش',
+                pillar1Desc: 'قطن مصري معالج ضد الانكماش والوبرة، وطباعة سيلك سكرين بتستحمل الغسيل.',
+                pillar2Title: '02. كميات محدودة',
+                pillar2Desc: 'كل دروب بينزل بعدد قطع معين ومش بيتكرر تاني عشان تفضل مميز.',
+                bentoM1Title: 'صُنع في مصر',
+                bentoM1Desc: 'بأيادي ومصممين مصريين 100% بمعايير عالمية.',
+                bentoM2Title: 'جرافيك جريء',
+                bentoM2Desc: 'رسومات حصرية مستوحاة من التراث وثقافة الشارع المعاصر.',
+                bentoM3Tag: 'مجتمع Karkaba',
+                bentoM3Title: 'أكتر من +15,000 قطعة وصلت لصحابها',
+                bentoM3Cta: 'انضم للعيلة',
+                footerNewsletterDesc: 'اشترك في نشرة Karkaba عشان يوصلك ميعاد الدروب الجديد قبل أي حد، وكمان كود خصم خاص ليك!',
+                newsletterPlaceholder: 'اكتب إيميلك هنا...',
+                newsletterBtn: 'اشترك الآن',
+                footerQuickLinks: 'تصفح سريع',
+                fLinkAll: 'كل المنتجات',
+                fLinkHoodies: 'هوديز شتاء 2026',
+                fLinkTshirts: 'تيشيرتات أوفرسايز',
+                fLinkPants: 'بناطيل كارجو',
+                fLinkStory: 'قصة Karkaba',
+                footerContactTitle: 'تواصل معانا',
+                footerContactSub: 'عندك سؤال عن المقاسات أو الأوردر؟ فريقنا موجود دايماً.',
+                payCod: '💵 الدفع عند الاستلام',
+                payCard: '💳 فيزا / ميزة / انستاباي',
+                langLabel: 'اللغة:',
+                footerCopyright: '© 2026 Karkaba. جميع الحقوق محفوظة.',
+                footerMadeIn: 'صُمم بشغف وهوية عصرية في مصر 🇪🇬',
+                drawerTitle: 'سلة Karkaba',
+                emptyCartTitle: 'سلتك لسه فاضية!',
+                emptyCartSub: 'يلا املاها بأجدد قطع Karkaba 2026.',
+                browseProducts: 'تصفح المنتجات',
+                cartSizeLabel: 'المقاس:',
+                promoPlaceholder: 'كود الخصم (جرب KARKABA10)',
+                applyPromo: 'تطبيق',
+                promoSuccess: 'تم تفعيل خصم 10% بنجاح! 🎉',
+                promoError: 'الكود غير صحيح.. جرب KARKABA10',
+                labelSubtotal: 'المجموع الفرعي:',
+                labelDiscount: 'الخصم (10%):',
+                labelShipping: 'الشحن:',
+                freeShipping: 'مجاني 🎉',
+                labelTotal: 'الإجمالي النهائي:',
+                checkoutBtn: 'إتمام الأوردر دلوقتي',
+                checkoutTitle: 'أوردرك اتسجل بنجاح! 🎉',
+                checkoutDesc: 'شكراً ليك! فريق Karkaba بيجهز أوردرك دلوقتي وهنتواصل معاك لتأكيد ميعاد الاستلام خلال 24 ساعة.',
+                labelOrderNum: 'رقم الطلب:',
+                labelPayMethod: 'طريقة الدفع:',
+                valPayMethod: 'الدفع عند الاستلام',
+                backToStore: 'رجوع للمتجر',
+                toastAdded: (name, size) => `تم إضافة "${name}" (مقاس ${size}) للسلة! 🔥`,
+                toastOrderConfirmed: (orderNum) => `تم تأكيد أوردرك ${orderNum} بنجاح! 🎉`,
+                toastNewsletter: 'نورت عيلة Karkaba! بعتنالك كود الخصم على إيميلك 💌',
+                darkLabel: 'Dark',
+                lightLabel: 'Light'
+            },
+            en: {
+                pageTitle: 'Karkaba | Modern Egyptian Streetwear',
+                topPromo: 'Use code <span class="bg-lime text-charcoal px-1.5 py-0.5 rounded mx-1 font-black">KARKABA10</span> for 10% OFF your first order!',
+                brandTagline: 'STREETWEAR ORIGINALS™',
+                navNew: 'NEW DROP 🔥',
+                navTshirts: 'TEES',
+                navHoodies: 'HOODIES',
+                navPants: 'PANTS',
+                navAccessories: 'ACCESSORIES',
+                navStory: 'STORY',
+                cartLabel: 'BAG',
+                searchPlaceholder: 'Search Karkaba pieces (e.g. Hoodie, Cargo, Kemet...)',
+                clearSearch: 'CLEAR',
+                heroBadge: 'FW / SS 2026 COLLECTION IS LIVE!',
+                heroLine1: 'ANCIENT ROOTS..',
+                heroHighlight: 'BOLD STREET ENERGY',
+                heroSubtitle: 'Streetwear pieces from Karkaba with an Egyptian soul that breaks ordinary molds. Relaxed oversized cuts, heavyweight fabrics, and bold details that speak for you.',
+                heroCtaPrimary: 'SHOP COLLECTION',
+                heroCtaSecondary: 'WHY Karkaba?',
+                stat1Label: 'PREMIUM EGYPTIAN COTTON',
+                stat2Val: 'LIMITED',
+                stat2Label: 'SMALL BATCH DROPS',
+                stat3Label: 'NATIONWIDE SHIPPING',
+                heroSticker: 'ZERO REPEATS ⚡',
+                heroDropTag: 'DROP 04 // Karkaba',
+                bento2Text: 'TRUE OVERSIZED FITS',
+                bento3Badge: 'NEW',
+                bento3Title: 'WEAR YOUR IDENTITY!',
+                bento3Sub: 'SIZES FROM S TO XL',
+                marquee: [
+                    'NATIONWIDE DELIVERY 🚚',
+                    'LIMITED DROPS 🔥',
+                    'ZERO REPEATS ⚡',
+                    'Karkaba 2026 🎨',
+                    'COD & ONLINE PAYMENT 💳',
+                    '14-DAY EASY EXCHANGE 🔄'
+                ],
+                collectionBadge: '2026 LINEUP',
+                collectionTitle: 'PICK YOUR Karkaba PIECE ✨',
+                catAll: 'ALL (8)',
+                catHoodies: 'HOODIES',
+                catTshirts: 'TEES',
+                catPants: 'PANTS',
+                catAccessories: 'ACCESSORIES',
+                noResultsTitle: 'Nothing found matching that in Karkaba!',
+                noResultsSub: 'Try another search keyword or view the full collection.',
+                resetFilters: 'SHOW ALL PRODUCTS',
+                sizeLabel: 'SIZE:',
+                addToCart: 'ADD TO BAG',
+                qvAddToCart: 'ADD TO BAG NOW',
+                qvChooseSize: 'SELECT SIZE:',
+                currency: 'EGP',
+                manifestoBadge: 'BRAND MANIFESTO // Karkaba',
+                manifestoTitle: 'WHY THE NAME <span class="text-lime underline decoration-blaze decoration-4 underline-offset-8">Karkaba</span>?',
+                manifestoP1: '"Kemet" echoes the fertile black land of ancient Egypt, reimagined at Karkaba into contemporary streetwear that breaks away from repetitive basics.',
+                manifestoP2: 'Every piece blends everyday comfort, heavy construction, and fearless graphics made for a generation that owns its presence.',
+                pillar1Title: '01. BUILT TO LAST',
+                pillar1Desc: 'Pre-shrunk heavyweight Egyptian cotton and durable screen prints.',
+                pillar2Title: '02. LIMITED RUNS',
+                pillar2Desc: 'Each drop is produced in limited quantities and never restocked.',
+                bentoM1Title: 'MADE IN EGYPT',
+                bentoM1Desc: 'Crafted by local makers and designers to global standards.',
+                bentoM2Title: 'FEARLESS GRAPHICS',
+                bentoM2Desc: 'Original artwork blending heritage motifs with modern street culture.',
+                bentoM3Tag: 'Karkaba COMMUNITY',
+                bentoM3Title: 'OVER 15,000+ PIECES WORN WORLDWIDE',
+                bentoM3Cta: 'JOIN THE CREW',
+                footerNewsletterDesc: 'Join the Karkaba list for early drop access and an exclusive welcome discount code!',
+                newsletterPlaceholder: 'Enter your email...',
+                newsletterBtn: 'SUBSCRIBE',
+                footerQuickLinks: 'QUICK LINKS',
+                fLinkAll: 'All Products',
+                fLinkHoodies: 'Winter 2026 Hoodies',
+                fLinkTshirts: 'Oversized Tees',
+                fLinkPants: 'Cargo Pants',
+                fLinkStory: 'Karkaba Story',
+                footerContactTitle: 'GET IN TOUCH',
+                footerContactSub: 'Questions about sizing or orders? Our team has your back.',
+                payCod: '💵 CASH ON DELIVERY',
+                payCard: '💳 VISA / MEEZA / INSTAPAY',
+                langLabel: 'LANG:',
+                footerCopyright: '© 2026 Karkaba. All rights reserved.',
+                footerMadeIn: 'Designed with passion & modern identity in Egypt 🇪🇬',
+                drawerTitle: 'Karkaba BAG',
+                emptyCartTitle: 'YOUR BAG IS EMPTY!',
+                emptyCartSub: 'Fill it up with fresh Karkaba 2026 pieces.',
+                browseProducts: 'BROWSE PRODUCTS',
+                cartSizeLabel: 'SIZE:',
+                promoPlaceholder: 'PROMO CODE (TRY KARKABA10)',
+                applyPromo: 'APPLY',
+                promoSuccess: '10% discount applied! 🎉',
+                promoError: 'Invalid code.. try KARKABA10',
+                labelSubtotal: 'Subtotal:',
+                labelDiscount: 'Discount (10%):',
+                labelShipping: 'Shipping:',
+                freeShipping: 'FREE 🎉',
+                labelTotal: 'Total:',
+                checkoutBtn: 'CHECKOUT NOW',
+                checkoutTitle: 'ORDER CONFIRMED! 🎉',
+                checkoutDesc: 'Thank you! The Karkaba team is preparing your order and will contact you within 24 hours to confirm delivery.',
+                labelOrderNum: 'Order ID:',
+                labelPayMethod: 'Payment:',
+                valPayMethod: 'Cash on Delivery',
+                backToStore: 'BACK TO STORE',
+                toastAdded: (name, size) => `Added "${name}" (${size}) to bag! 🔥`,
+                toastOrderConfirmed: (orderNum) => `Order ${orderNum} confirmed! 🎉`,
+                toastNewsletter: 'Welcome to Karkaba! Check your inbox for your discount code 💌',
+                darkLabel: 'Dark',
+                lightLabel: 'Light'
+            },
+            fr: {
+                pageTitle: 'Karkaba | Streetwear Moderne d’Identité Égyptienne',
+                topPromo: 'Utilisez le code <span class="bg-lime text-charcoal px-1.5 py-0.5 rounded mx-1 font-black">KARKABA10</span> pour -10% sur votre 1ère commande !',
+                brandTagline: 'ORIGINAUX STREETWEAR™',
+                navNew: 'NOUVEAUTÉS 🔥',
+                navTshirts: 'T-SHIRTS',
+                navHoodies: 'HOODIES',
+                navPants: 'PANTALONS',
+                navAccessories: 'ACCESSOIRES',
+                navStory: 'HISTOIRE',
+                cartLabel: 'PANIER',
+                searchPlaceholder: 'Rechercher chez Karkaba (ex: Hoodie, Cargo, Kemet...)',
+                clearSearch: 'EFFACER',
+                heroBadge: 'COLLECTION AUTOMNE / HIVER 2026 DISPO !',
+                heroLine1: 'RACINES ANCIENNES..',
+                heroHighlight: 'ÉNERGIE RUE AUDACIEUSE',
+                heroSubtitle: 'Des pièces streetwear signées Karkaba à l’âme égyptienne qui bousculent les codes. Coupes oversize confortables, matières lourdes et détails marquants.',
+                heroCtaPrimary: 'VOIR LA COLLECTION',
+                heroCtaSecondary: 'POURQUOI Karkaba ?',
+                stat1Label: 'COTON ÉGYPTIEN PREMIUM',
+                stat2Val: 'LIMITED',
+                stat2Label: 'ÉDITIONS LIMITÉES',
+                stat3Label: 'LIVRAISON PARTOUT',
+                heroSticker: 'PIÈCE UNIQUE ⚡',
+                heroDropTag: 'DROP 04 // Karkaba',
+                bento2Text: 'COUPES OVERSIZE AUTHENTIQUES',
+                bento3Badge: 'NOUVEAU',
+                bento3Title: 'AFFIRME TON IDENTITÉ !',
+                bento3Sub: 'TAILLES DE S À XL',
+                marquee: [
+                    'LIVRAISON RAPIDE 🚚',
+                    'ÉDITIONS LIMITÉES 🔥',
+                    'PIÈCE UNIQUE ⚡',
+                    'Karkaba 2026 🎨',
+                    'PAIEMENT À LA LIVRAISON & EN LIGNE 💳',
+                    'ÉCHANGE FACILE SOUS 14 JOURS 🔄'
+                ],
+                collectionBadge: 'SÉLECTION 2026',
+                collectionTitle: 'CHOISIS TA PIÈCE Karkaba ✨',
+                catAll: 'TOUT (8)',
+                catHoodies: 'HOODIES',
+                catTshirts: 'T-SHIRTS',
+                catPants: 'PANTALONS',
+                catAccessories: 'ACCESSOIRES',
+                noResultsTitle: 'Aucun article trouvé chez Karkaba !',
+                noResultsSub: 'Essayez un autre mot-clé ou parcourez toute la collection.',
+                resetFilters: 'AFFICHER TOUT',
+                sizeLabel: 'TAILLE :',
+                addToCart: 'AJOUTER AU PANIER',
+                qvAddToCart: 'AJOUTER AU PANIER',
+                qvChooseSize: 'CHOISIR LA TAILLE :',
+                currency: 'EGP',
+                manifestoBadge: 'MANIFESTE DE LA MARQUE // Karkaba',
+                manifestoTitle: 'POURQUOI LE NOM <span class="text-lime underline decoration-blaze decoration-4 underline-offset-8">Karkaba</span> ?',
+                manifestoP1: '« Kemet » évoque la terre fertile de l’Égypte antique, réinterprétée chez Karkaba dans un streetwear contemporain loin des basiques ordinaires.',
+                manifestoP2: 'Chaque pièce allie confort quotidien, finitions robustes et graphismes audacieux pour une génération qui assume son style.',
+                pillar1Title: '01. MATIÈRES DURABLES',
+                pillar1Desc: 'Coton égyptien épais pré-rétréci et sérigraphie résistante aux lavages.',
+                pillar2Title: '02. QUANTITÉS LIMITÉES',
+                pillar2Desc: 'Chaque drop est produit en série limitée sans réassort.',
+                bentoM1Title: 'FABRIQUÉ EN ÉGYPTE',
+                bentoM1Desc: 'Conçu par des créateurs et ateliers locaux selon des standards élevés.',
+                bentoM2Title: 'GRAPHISMES AUDACIEUX',
+                bentoM2Desc: 'Créations exclusives mêlant héritage et culture urbaine actuelle.',
+                bentoM3Tag: 'COMMUNAUTÉ Karkaba',
+                bentoM3Title: 'PLUS DE 15 000+ PIÈCES ADOPTÉES',
+                bentoM3Cta: 'REJOINDRE LE CREW',
+                footerNewsletterDesc: 'Inscris-toi à la newsletter Karkaba pour l’accès anticipé aux drops et un code promo exclusif !',
+                newsletterPlaceholder: 'Entrez votre e-mail...',
+                newsletterBtn: 'S’INSCRIRE',
+                footerQuickLinks: 'LIENS RAPIDES',
+                fLinkAll: 'Tous les produits',
+                fLinkHoodies: 'Hoodies Hiver 2026',
+                fLinkTshirts: 'T-Shirts Oversize',
+                fLinkPants: 'Pantalons Cargo',
+                fLinkStory: 'Histoire Karkaba',
+                footerContactTitle: 'CONTACT',
+                footerContactSub: 'Une question sur les tailles ou une commande ? Notre équipe est là.',
+                payCod: '💵 PAIEMENT À LA LIVRAISON',
+                payCard: '💳 CARTE / MEEZA / INSTAPAY',
+                langLabel: 'LANGUE :',
+                footerCopyright: '© 2026 Karkaba. Tous droits réservés.',
+                footerMadeIn: 'Créé avec passion et identité moderne en Égypte 🇪🇬',
+                drawerTitle: 'PANIER Karkaba',
+                emptyCartTitle: 'VOTRE PANIER EST VIDE !',
+                emptyCartSub: 'Remplissez-le avec les nouveautés Karkaba 2026.',
+                browseProducts: 'VOIR LA BOUTIQUE',
+                cartSizeLabel: 'TAILLE :',
+                promoPlaceholder: 'CODE PROMO (ESSAYEZ KARKABA10)',
+                applyPromo: 'APPLIQUER',
+                promoSuccess: 'Réduction de 10% activée ! 🎉',
+                promoError: 'Code invalide.. essayez KARKABA10',
+                labelSubtotal: 'Sous-total :',
+                labelDiscount: 'Remise (10%) :',
+                labelShipping: 'Livraison :',
+                freeShipping: 'GRATUITE 🎉',
+                labelTotal: 'Total :',
+                checkoutBtn: 'COMMANDER MAINTENANT',
+                checkoutTitle: 'COMMANDE CONFIRMÉE ! 🎉',
+                checkoutDesc: 'Merci ! L’équipe Karkaba prépare votre commande et vous contactera sous 24h pour confirmer la livraison.',
+                labelOrderNum: 'N° Commande :',
+                labelPayMethod: 'Paiement :',
+                valPayMethod: 'Paiement à la livraison',
+                backToStore: 'RETOUR BOUTIQUE',
+                toastAdded: (name, size) => `"${name}" (${size}) ajouté au panier ! 🔥`,
+                toastOrderConfirmed: (orderNum) => `Commande ${orderNum} confirmée ! 🎉`,
+                toastNewsletter: 'Bienvenue chez Karkaba ! Votre code promo a été envoyé 💌',
+                darkLabel: 'Dark',
+                lightLabel: 'Light'
+            }
+        };
+
+        // Karkaba product catalog
+        const products = [
+            {
+                id: 1,
+                category: 'hoodies',
+                price: 1150,
+                badgeColor: 'bg-blaze text-white',
+                image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=80',
+                sizes: ['S', 'M', 'L', 'XL'],
+                featured: true,
+                translations: {
+                    ar: {
+                        name: 'هودي كاميت أوفرسايز',
+                        categoryLabel: 'هوديز',
+                        badge: 'الأكثر مبيعاً 🔥',
+                        description: 'هودي أوفرسايز تقيل (420 جرام) مبطن ميلتون ناعم، بطباعة جرافيك بارزة على الضهر وتطريز شعار Karkaba على الصدر.'
+                    },
+                    en: {
+                        name: 'Karkaba Heavy Oversized Hoodie',
+                        categoryLabel: 'HOODIES',
+                        badge: 'BEST SELLER 🔥',
+                        description: '420 GSM heavyweight oversized hoodie with soft fleece lining, bold back graphic print, and embroidered Karkaba chest mark.'
+                    },
+                    fr: {
+                        name: 'Hoodie Oversize Épais Karkaba',
+                        categoryLabel: 'HOODIES',
+                        badge: 'BEST-SELLER 🔥',
+                        description: 'Hoodie oversize épais (420 g/m²) doublé molleton doux, visuel graphique au dos et broderie Karkaba sur la poitrine.'
+                    }
+                }
+            },
+            {
+                id: 2,
+                category: 'tshirts',
+                price: 650,
+                badgeColor: 'bg-lime text-charcoal',
+                image: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=700&q=80',
+                sizes: ['S', 'M', 'L', 'XL'],
+                featured: false,
+                translations: {
+                    ar: {
+                        name: 'تيشيرت حروف كاميت 01',
+                        categoryLabel: 'تيشيرتات',
+                        badge: 'إصدار محدود',
+                        description: 'تيشيرت بوكسي فيت (Boxy Fit) قطن 100% عالي الكثافة، برسومات خطوط جريئة مستوحاة من روح Karkaba.'
+                    },
+                    en: {
+                        name: 'Karkaba Glyphs Boxy Tee 01',
+                        categoryLabel: 'TEES',
+                        badge: 'LIMITED EDITION',
+                        description: '100% heavyweight cotton boxy-fit tee featuring expressive line graphics inspired by Karkaba visual language.'
+                    },
+                    fr: {
+                        name: 'T-Shirt Boxy Glyphes Karkaba 01',
+                        categoryLabel: 'T-SHIRTS',
+                        badge: 'ÉDITION LIMITÉE',
+                        description: 'T-shirt boxy en coton épais 100 % avec graphismes audacieux inspirés de l’univers visuel de Karkaba.'
+                    }
+                }
+            },
+            {
+                id: 3,
+                category: 'pants',
+                price: 1350,
+                badgeColor: 'bg-charcoal text-lime',
+                image: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=700&q=80',
+                sizes: ['M', 'L', 'XL'],
+                featured: false,
+                translations: {
+                    ar: {
+                        name: 'بنطلون كارجو الصحراء',
+                        categoryLabel: 'بناطيل',
+                        badge: 'جديد 2026',
+                        description: 'بنطلون كارجو واسع (Baggy Cargo) بـ 6 جيوب عملية وأربطة تحكم عند الرجل لستايل ستريت وير متكامل.'
+                    },
+                    en: {
+                        name: 'Dune Wide Cargo Pants',
+                        categoryLabel: 'PANTS',
+                        badge: 'NEW 2026',
+                        description: 'Relaxed baggy cargo pants with 6 utility pockets and drawcord hems for a sharp streetwear silhouette.'
+                    },
+                    fr: {
+                        name: 'Pantalon Cargo Dune Large',
+                        categoryLabel: 'PANTALONS',
+                        badge: 'NOUVEAU 2026',
+                        description: 'Pantalon cargo ample à 6 poches utilitaires et cordons de serrage aux chevilles pour un style urbain affirmé.'
+                    }
+                }
+            },
+            {
+                id: 4,
+                category: 'tshirts',
+                price: 680,
+                badgeColor: 'bg-blaze text-white',
+                image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80',
+                sizes: ['S', 'M', 'L', 'XL'],
+                featured: false,
+                translations: {
+                    ar: {
+                        name: 'تيشيرت نبض الشارع',
+                        categoryLabel: 'تيشيرتات',
+                        badge: 'حصري',
+                        description: 'تصميم مستوحى من نبض شوارع القاهرة بلمسة عصرية جريئة وألوان ثابتة عالية الجودة.'
+                    },
+                    en: {
+                        name: 'Street Pulse Graphic Tee',
+                        categoryLabel: 'TEES',
+                        badge: 'EXCLUSIVE',
+                        description: 'Inspired by the pulse of Cairo streets with bold modern typography and long-lasting pigment ink.'
+                    },
+                    fr: {
+                        name: 'T-Shirt Graphique Street Pulse',
+                        categoryLabel: 'T-SHIRTS',
+                        badge: 'EXCLUSIF',
+                        description: 'Inspiré par l’énergie des rues du Caire avec une typographie moderne et des couleurs durables.'
+                    }
+                }
+            },
+            {
+                id: 5,
+                category: 'hoodies',
+                price: 1200,
+                badgeColor: 'bg-lime text-charcoal',
+                image: 'https://images.unsplash.com/photo-1509942774463-acf339cf87d5?auto=format&fit=crop&w=700&q=80',
+                sizes: ['M', 'L', 'XL'],
+                featured: true,
+                translations: {
+                    ar: {
+                        name: 'هودي نيون سولار',
+                        categoryLabel: 'هوديز',
+                        badge: 'آخر قطع',
+                        description: 'هودي أسود فاحم مع لمسات نيون لايم وتفاصيل خياطة خارجية تدي شكل مختلف ومميز.'
+                    },
+                    en: {
+                        name: 'Solar Volt Contrast Hoodie',
+                        categoryLabel: 'HOODIES',
+                        badge: 'FEW LEFT',
+                        description: 'Pitch-black heavyweight hoodie accented with volt lime details and raw seam paneling.'
+                    },
+                    fr: {
+                        name: 'Hoodie Contrasté Solar Volt',
+                        categoryLabel: 'HOODIES',
+                        badge: 'DERNIÈRES PIÈCES',
+                        description: 'Hoodie noir profond rehaussé de touches vert volt et de coutures apparentes structurées.'
+                    }
+                }
+            },
+            {
+                id: 6,
+                category: 'accessories',
+                price: 450,
+                badgeColor: 'bg-charcoal text-lime',
+                image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80',
+                sizes: ['One Size'],
+                featured: false,
+                translations: {
+                    ar: {
+                        name: 'شنطة كروس مهام يومية',
+                        categoryLabel: 'إكسسوارات',
+                        badge: 'عملي جداً',
+                        description: 'شنطة كروس مقاومة للمياه بتشيل كل حاجتك اليومية مع ميدالية Karkaba المعدنية هدية.'
+                    },
+                    en: {
+                        name: 'Daily Utility Crossbody Bag',
+                        categoryLabel: 'ACCESSORIES',
+                        badge: 'UTILITY',
+                        description: 'Water-resistant crossbody bag built for daily essentials, complete with a Karkaba metal keychain.'
+                    },
+                    fr: {
+                        name: 'Sac Bandoulière Utilitaire',
+                        categoryLabel: 'ACCESSOIRES',
+                        badge: 'PRATIQUE',
+                        description: 'Sac bandoulière déperlant conçu pour l’essentiel du quotidien avec porte-clés métallique Karkaba.'
+                    }
+                }
+            },
+            {
+                id: 7,
+                category: 'pants',
+                price: 980,
+                badgeColor: 'bg-lime text-charcoal',
+                image: 'https://images.unsplash.com/photo-1584865288642-42078afe6942?auto=format&fit=crop&w=700&q=80',
+                sizes: ['S', 'M', 'L', 'XL'],
+                featured: false,
+                translations: {
+                    ar: {
+                        name: 'سويت بانتس راحة مطلقة',
+                        categoryLabel: 'بناطيل',
+                        badge: 'راحة 100%',
+                        description: 'بنطلون سويت بانتس بقصة واسعة مريحة جداً للخروجات اليومية والسفر.'
+                    },
+                    en: {
+                        name: 'Relaxed Lounge Sweatpants',
+                        categoryLabel: 'PANTS',
+                        badge: 'ALL-DAY COMFORT',
+                        description: 'Wide-leg fleece sweatpants tailored for effortless movement on travel days and city hangs.'
+                    },
+                    fr: {
+                        name: 'Jogging Confort Coupe Large',
+                        categoryLabel: 'PANTALONS',
+                        badge: 'CONFORT 100 %',
+                        description: 'Pantalon de jogging ample en molleton doux pensé pour vos déplacements et sorties quotidiennes.'
+                    }
+                }
+            },
+            {
+                id: 8,
+                category: 'accessories',
+                price: 350,
+                badgeColor: 'bg-blaze text-white',
+                image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=700&q=80',
+                sizes: ['One Size'],
+                featured: false,
+                translations: {
+                    ar: {
+                        name: 'كاب Karkaba 26 المطرز',
+                        categoryLabel: 'إكسسوارات',
+                        badge: 'تريندي',
+                        description: 'كاب قطن بتطريز ثلاثي الأبعاد لكلمة Karkaba وقفل معدني خلفي قابل للتعديل.'
+                    },
+                    en: {
+                        name: 'Karkaba 26 Embroidered Cap',
+                        categoryLabel: 'ACCESSORIES',
+                        badge: 'TRENDING',
+                        description: 'Structured cotton cap with 3D Karkaba embroidery and an adjustable metal strap closure.'
+                    },
+                    fr: {
+                        name: 'Casquette Brodé Karkaba 26',
+                        categoryLabel: 'ACCESSOIRES',
+                        badge: 'TENDANCE',
+                        description: 'Casquette en coton avec broderie 3D Karkaba et boucle métallique réglable à l’arrière.'
+                    }
+                }
+            }
+        ];
+
+        // Application state
+        let currentLang = 'ar';
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let selectedSizes = {};
+        let cart = [];
+        let promoApplied = false;
+        let isDarkMode = false;
+        const PROMO_CODE = 'KARKABA10';
+        const SHIPPING_COST = 60;
+        const FREE_SHIPPING_THRESHOLD = 2000;
+
+        products.forEach(p => {
+            selectedSizes[p.id] = p.sizes.includes('L') ? 'L' : p.sizes[0];
+        });
+
+        function getProductLocalized(product, lang = currentLang) {
+            const t = product.translations[lang] || product.translations.ar;
+            return {
+                ...product,
+                name: t.name,
+                categoryLabel: t.categoryLabel,
+                badge: t.badge,
+                description: t.description
+            };
+        }
+
+        function setLanguage(lang) {
+            if (!i18n[lang]) return;
+            currentLang = lang;
+            const t = i18n[lang];
+            const isRtl = lang === 'ar';
+
+            document.documentElement.lang = lang;
+            document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+            document.title = t.pageTitle;
+
+            document.getElementById('lang-switcher-label').textContent = t.langLabel;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.className = 'lang-btn px-2 py-1 rounded-lg bg-charcoal text-lime transition-colors';
+                } else {
+                    btn.className = 'lang-btn px-2 py-1 rounded-lg text-charcoal hover:bg-lime/60 transition-colors';
+                }
+            });
+
+            // Sync closed drawer offset with text direction
+            if (cartOverlay.classList.contains('hidden')) {
+                setCartClosedTransform();
+            }
+
+            document.getElementById('top-promo-text').innerHTML = t.topPromo;
+            document.getElementById('brand-tagline').textContent = t.brandTagline;
+            document.getElementById('nav-new').textContent = t.navNew;
+            document.getElementById('nav-tshirts').textContent = t.navTshirts;
+            document.getElementById('nav-hoodies').textContent = t.navHoodies;
+            document.getElementById('nav-pants').textContent = t.navPants;
+            document.getElementById('nav-accessories').textContent = t.navAccessories;
+            document.getElementById('nav-story').textContent = t.navStory;
+            document.getElementById('cart-label').textContent = t.cartLabel;
+
+            document.getElementById('mob-new').textContent = t.navNew;
+            document.getElementById('mob-tshirts').textContent = t.navTshirts;
+            document.getElementById('mob-hoodies').textContent = t.navHoodies;
+            document.getElementById('mob-pants').textContent = t.navPants;
+            document.getElementById('mob-accessories').textContent = t.navAccessories;
+            document.getElementById('mob-story').textContent = t.navStory;
+
+            document.getElementById('search-input').placeholder = t.searchPlaceholder;
+            document.getElementById('clear-search-btn').textContent = t.clearSearch;
+
+            document.getElementById('hero-badge').textContent = t.heroBadge;
+            document.getElementById('hero-title-line1').textContent = t.heroLine1;
+            document.getElementById('hero-title-highlight').textContent = t.heroHighlight;
+            document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
+            document.getElementById('hero-cta-primary').textContent = t.heroCtaPrimary;
+            document.getElementById('hero-cta-secondary').textContent = t.heroCtaSecondary;
+            document.getElementById('stat-1-label').textContent = t.stat1Label;
+            document.getElementById('stat-2-val').textContent = t.stat2Val;
+            document.getElementById('stat-2-label').textContent = t.stat2Label;
+            document.getElementById('stat-3-label').textContent = t.stat3Label;
+            document.getElementById('hero-sticker').textContent = t.heroSticker;
+            document.getElementById('hero-drop-tag').textContent = t.heroDropTag;
+            document.getElementById('bento-card-2-text').textContent = t.bento2Text;
+            document.getElementById('bento-card-3-badge').textContent = t.bento3Badge;
+            document.getElementById('bento-card-3-title').textContent = t.bento3Title;
+            document.getElementById('bento-card-3-sub').textContent = t.bento3Sub;
+
+            const marqueeItems = [...t.marquee, ...t.marquee];
+            document.getElementById('marquee-track').innerHTML = marqueeItems
+                .map(item => `<span>${item}</span><span>✦</span>`)
+                .join('');
+
+            document.getElementById('collection-badge').textContent = t.collectionBadge;
+            document.getElementById('collection-title').textContent = t.collectionTitle;
+            document.getElementById('no-results-title').textContent = t.noResultsTitle;
+            document.getElementById('no-results-sub').textContent = t.noResultsSub;
+            document.getElementById('reset-filters-btn').textContent = t.resetFilters;
+
+            updateFilterButtonsLabels();
+
+            document.getElementById('manifesto-badge').textContent = t.manifestoBadge;
+            document.getElementById('manifesto-title').innerHTML = t.manifestoTitle;
+            document.getElementById('manifesto-p1').textContent = t.manifestoP1;
+            document.getElementById('manifesto-p2').textContent = t.manifestoP2;
+            document.getElementById('pillar-1-title').textContent = t.pillar1Title;
+            document.getElementById('pillar-1-desc').textContent = t.pillar1Desc;
+            document.getElementById('pillar-2-title').textContent = t.pillar2Title;
+            document.getElementById('pillar-2-desc').textContent = t.pillar2Desc;
+            document.getElementById('bento-m1-title').textContent = t.bentoM1Title;
+            document.getElementById('bento-m1-desc').textContent = t.bentoM1Desc;
+            document.getElementById('bento-m2-title').textContent = t.bentoM2Title;
+            document.getElementById('bento-m2-desc').textContent = t.bentoM2Desc;
+            document.getElementById('bento-m3-tag').textContent = t.bentoM3Tag;
+            document.getElementById('bento-m3-title').textContent = t.bentoM3Title;
+            document.getElementById('bento-m3-cta').textContent = t.bentoM3Cta;
+
+            document.getElementById('footer-newsletter-desc').textContent = t.footerNewsletterDesc;
+            document.getElementById('newsletter-email').placeholder = t.newsletterPlaceholder;
+            document.getElementById('newsletter-submit-btn').textContent = t.newsletterBtn;
+            document.getElementById('footer-quick-links-title').textContent = t.footerQuickLinks;
+            document.getElementById('f-link-all').textContent = t.fLinkAll;
+            document.getElementById('f-link-hoodies').textContent = t.fLinkHoodies;
+            document.getElementById('f-link-tshirts').textContent = t.fLinkTshirts;
+            document.getElementById('f-link-pants').textContent = t.fLinkPants;
+            document.getElementById('f-link-story').textContent = t.fLinkStory;
+            document.getElementById('footer-contact-title').textContent = t.footerContactTitle;
+            document.getElementById('footer-contact-sub').textContent = t.footerContactSub;
+            document.getElementById('pay-cod').textContent = t.payCod;
+            document.getElementById('pay-card').textContent = t.payCard;
+            document.getElementById('footer-copyright').textContent = t.footerCopyright;
+            document.getElementById('footer-made-in').textContent = t.footerMadeIn;
+
+            updateDarkModeButtonText();
+
+            document.getElementById('drawer-title').textContent = t.drawerTitle;
+            document.getElementById('promo-input').placeholder = t.promoPlaceholder;
+            document.getElementById('apply-promo-btn').textContent = t.applyPromo;
+            document.getElementById('label-subtotal').textContent = t.labelSubtotal;
+            document.getElementById('label-discount').textContent = t.labelDiscount;
+            document.getElementById('label-shipping').textContent = t.labelShipping;
+            document.getElementById('label-total').textContent = t.labelTotal;
+            document.getElementById('checkout-btn-text').textContent = t.checkoutBtn;
+
+            document.getElementById('checkout-modal-title').textContent = t.checkoutTitle;
+            document.getElementById('checkout-modal-desc').textContent = t.checkoutDesc;
+            document.getElementById('label-order-num').textContent = t.labelOrderNum;
+            document.getElementById('label-pay-method').textContent = t.labelPayMethod;
+            document.getElementById('val-pay-method').textContent = t.valPayMethod;
+            document.getElementById('close-checkout-modal').textContent = t.backToStore;
+
+            const promoMsg = document.getElementById('promo-message');
+            if (!promoMsg.classList.contains('hidden')) {
+                promoMsg.textContent = promoApplied ? t.promoSuccess : t.promoError;
+            }
+
+            renderProducts();
+            updateCartUI();
+
+            const qvModal = document.getElementById('quick-view-modal');
+            if (!qvModal.classList.contains('hidden') && qvModal.dataset.productId) {
+                openQuickView(Number(qvModal.dataset.productId));
+            }
+
+            lucide.createIcons();
+        }
+
+        function updateFilterButtonsLabels() {
+            const t = i18n[currentLang];
+            const catLabels = {
+                all: t.catAll,
+                hoodies: t.catHoodies,
+                tshirts: t.catTshirts,
+                pants: t.catPants,
+                accessories: t.catAccessories
+            };
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                const cat = btn.dataset.cat;
+                btn.textContent = catLabels[cat] || cat;
+                if (cat === currentCategory) {
+                    btn.className = 'filter-btn active px-5 py-2.5 rounded-xl border-2 border-charcoal font-black text-sm bg-charcoal text-lime shadow-brutal-sm transition-all';
+                } else {
+                    btn.className = 'filter-btn px-5 py-2.5 rounded-xl border-2 border-charcoal font-bold text-sm bg-white hover:bg-lime transition-all';
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            const noResults = document.getElementById('no-results');
+            const t = i18n[currentLang];
+            const q = searchQuery.toLowerCase();
+
+            const filtered = products
+                .map(p => getProductLocalized(p, currentLang))
+                .filter(product => {
+                    const matchesCat = currentCategory === 'all' || product.category === currentCategory;
+                    const allTexts = Object.values(product.translations)
+                        .map(tr => `${tr.name} ${tr.categoryLabel} ${tr.description}`)
+                        .join(' ')
+                        .toLowerCase();
+                    const matchesSearch = !q || allTexts.includes(q);
+                    return matchesCat && matchesSearch;
+                });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            grid.innerHTML = filtered.map(product => {
+                const activeSize = selectedSizes[product.id];
+                const bentoSpan = (currentCategory === 'all' && !searchQuery && product.featured) ? 'lg:col-span-2' : '';
+
+                return `
+                <article class="group bg-white rounded-3xl border-2 border-charcoal shadow-brutal hover:shadow-brutal-lg transition-all duration-200 flex flex-col justify-between overflow-hidden ${bentoSpan}">
+                    <div>
+                        <div class="relative h-64 sm:h-72 overflow-hidden border-b-2 border-charcoal bg-concrete">
+                            <img src="${product.image}"
+                                 onerror="this.src='https://placehold.co/600x600/121212/CCFF00?text=${encodeURIComponent(product.name)}'"
+                                 alt="${product.name}"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+                            <span class="absolute top-3 end-3 ${product.badgeColor} text-xs font-black px-3 py-1 rounded-xl border-2 border-charcoal shadow-brutal-sm">
+                                ${product.badge}
+                            </span>
+
+                            <button type="button" onclick="openQuickView(${product.id})" aria-label="Quick View" class="absolute top-3 start-3 p-2.5 bg-white/95 hover:bg-lime text-charcoal rounded-xl border-2 border-charcoal shadow-brutal-sm transition-transform hover:scale-105">
+                                <i data-lucide="eye" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+
+                        <div class="p-5">
+                            <div class="flex items-start justify-between gap-2 mb-2">
+                                <div>
+                                    <span class="text-xs font-extrabold text-gray-500">${product.categoryLabel}</span>
+                                    <h3 class="font-display font-extrabold text-xl text-charcoal group-hover:text-blaze transition-colors">${product.name}</h3>
+                                </div>
+                                <div class="bg-lime px-3 py-1 rounded-xl border-2 border-charcoal font-black text-base whitespace-nowrap shadow-brutal-sm">
+                                    ${product.price} ${t.currency}
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-gray-600 font-semibold line-clamp-2 mb-4">${product.description}</p>
+
+                            <div class="mb-4">
+                                <span class="text-xs font-extrabold text-gray-700 block mb-1.5">${t.sizeLabel}</span>
+                                <div class="flex flex-wrap gap-1.5">
+                                    ${product.sizes.map(size => `
+                                        <button type="button" onclick="selectSize(${product.id}, '${size}')"
+                                                class="px-3 py-1 rounded-lg border-2 border-charcoal text-xs font-black transition-all ${activeSize === size ? 'bg-charcoal text-lime shadow-brutal-sm' : 'bg-cream text-charcoal hover:bg-lime/50'}">
+                                            ${size}
+                                        </button>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-5 pb-5">
+                        <button type="button" onclick="addToCart(${product.id})" class="btn-brutal w-full py-3 rounded-xl bg-charcoal hover:bg-lime text-lime hover:text-charcoal font-black text-sm border-2 border-charcoal shadow-brutal-sm flex items-center justify-center gap-2 transition-colors">
+                            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                            <span>${t.addToCart}</span>
+                        </button>
+                    </div>
+                </article>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function selectSize(productId, size) {
+            selectedSizes[productId] = size;
+            renderProducts();
+        }
+
+        function filterByCategory(category) {
+            currentCategory = category;
+            updateFilterButtonsLabels();
+            renderProducts();
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => filterByCategory(btn.dataset.cat));
+        });
+
+        function resetFilters() {
+            searchQuery = '';
+            document.getElementById('search-input').value = '';
+            document.getElementById('clear-search-btn').classList.add('hidden');
+            filterByCategory('all');
+        }
+
+        // Live search controls
+        const searchToggleBtn = document.getElementById('search-toggle-btn');
+        const searchContainer = document.getElementById('search-bar-container');
+        const searchInput = document.getElementById('search-input');
+        const clearSearchBtn = document.getElementById('clear-search-btn');
+
+        searchToggleBtn.addEventListener('click', () => {
+            searchContainer.classList.toggle('hidden');
+            if (!searchContainer.classList.contains('hidden')) {
+                searchInput.focus();
+            }
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            clearSearchBtn.classList.toggle('hidden', searchQuery === '');
+            renderProducts();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearSearchBtn.classList.add('hidden');
+            renderProducts();
+        });
+
+        // Quick View Modal
+        const quickViewModal = document.getElementById('quick-view-modal');
+        const quickViewContent = document.getElementById('quick-view-content');
+
+        function openQuickView(productId) {
+            const rawProduct = products.find(p => p.id === productId);
+            if (!rawProduct) return;
+            const product = getProductLocalized(rawProduct, currentLang);
+            const activeSize = selectedSizes[product.id];
+            const t = i18n[currentLang];
+
+            quickViewModal.dataset.productId = productId;
+            quickViewContent.innerHTML = `
+                <div class="h-72 md:h-full bg-concrete border-b-2 md:border-b-0 md:border-e-2 border-charcoal">
+                    <img src="${product.image}"
+                         onerror="this.src='https://placehold.co/600x600/121212/CCFF00?text=${encodeURIComponent(product.name)}'"
+                         alt="${product.name}" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 sm:p-8 flex flex-col justify-between space-y-5">
+                    <div>
+                        <span class="inline-block ${product.badgeColor} text-xs font-black px-3 py-1 rounded-lg border border-charcoal mb-3">${product.badge}</span>
+                        <h3 class="font-display font-extrabold text-3xl text-charcoal mb-2">${product.name}</h3>
+                        <div class="inline-block bg-lime px-4 py-1.5 rounded-xl border-2 border-charcoal font-black text-xl mb-4 shadow-brutal-sm">
+                            ${product.price} ${t.currency}
+                        </div>
+                        <p class="text-sm text-gray-700 font-bold leading-relaxed mb-5">${product.description}</p>
+
+                        <div>
+                            <span class="text-xs font-black block mb-2">${t.qvChooseSize}</span>
+                            <div class="flex flex-wrap gap-2">
+                                ${product.sizes.map(size => `
+                                    <button type="button" onclick="selectQuickViewSize(${product.id}, '${size}')"
+                                            class="px-4 py-2 rounded-xl border-2 border-charcoal text-sm font-black ${activeSize === size ? 'bg-charcoal text-lime' : 'bg-white text-charcoal hover:bg-lime'}">
+                                        ${size}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="addToCart(${product.id}); closeQuickView()" class="btn-brutal w-full py-4 rounded-2xl bg-charcoal text-lime font-display font-extrabold text-lg border-2 border-charcoal shadow-brutal flex items-center justify-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span>${t.qvAddToCart}</span>
+                    </button>
+                </div>
+            `;
+
+            quickViewModal.classList.remove('hidden');
+            quickViewModal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function selectQuickViewSize(productId, size) {
+            selectedSizes[productId] = size;
+            renderProducts();
+            openQuickView(productId);
+        }
+
+        function closeQuickView() {
+            quickViewModal.classList.add('hidden');
+            quickViewModal.classList.remove('flex');
+            delete quickViewModal.dataset.productId;
+        }
+
+        document.getElementById('close-quick-view').addEventListener('click', closeQuickView);
+        quickViewModal.addEventListener('click', (e) => {
+            if (e.target === quickViewModal) closeQuickView();
+        });
+
+        // Shopping Cart logic
+        function addToCart(productId) {
+            const rawProduct = products.find(p => p.id === productId);
+            if (!rawProduct) return;
+            const product = getProductLocalized(rawProduct, currentLang);
+            const size = selectedSizes[productId];
+
+            const existingItemIndex = cart.findIndex(item => item.id === productId && item.size === size);
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                cart.push({
+                    id: rawProduct.id,
+                    price: rawProduct.price,
+                    image: rawProduct.image,
+                    size: size,
+                    quantity: 1
+                });
+            }
+
+            updateCartUI();
+            showToast(i18n[currentLang].toastAdded(product.name, size));
+        }
+
+        function updateQuantity(index, delta) {
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const t = i18n[currentLang];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-badge').textContent = totalItems;
+            document.getElementById('drawer-count').textContent = totalItems;
+
+            const container = document.getElementById('cart-items-container');
+            const footer = document.getElementById('cart-footer');
+
+            if (cart.length === 0) {
+                footer.classList.add('hidden');
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12">
+                        <div class="w-20 h-20 bg-concrete rounded-3xl border-2 border-charcoal flex items-center justify-center mb-4 transform -rotate-3">
+                            <i data-lucide="shopping-bag" class="w-10 h-10 text-gray-500"></i>
+                        </div>
+                        <h4 class="font-display font-extrabold text-xl mb-1">${t.emptyCartTitle}</h4>
+                        <p class="text-sm text-gray-600 font-bold mb-6">${t.emptyCartSub}</p>
+                        <button type="button" onclick="closeCart()" class="btn-brutal bg-lime text-charcoal font-black px-6 py-3 rounded-xl border-2 border-charcoal shadow-brutal-sm">
+                            ${t.browseProducts}
+                        </button>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            footer.classList.remove('hidden');
+            container.innerHTML = cart.map((item, idx) => {
+                const rawProd = products.find(p => p.id === item.id) || {};
+                const locProd = getProductLocalized(rawProd, currentLang);
+                return `
+                <div class="bg-white p-3.5 rounded-2xl border-2 border-charcoal shadow-brutal-sm flex gap-3.5 items-center">
+                    <img src="${item.image}"
+                         onerror="this.src='https://placehold.co/150x150/121212/CCFF00?text=Karkaba'"
+                         alt="${locProd.name}" class="w-20 h-20 rounded-xl object-cover border border-charcoal bg-concrete">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between items-start gap-1">
+                            <h4 class="font-display font-extrabold text-base truncate">${locProd.name}</h4>
+                            <button type="button" onclick="removeFromCart(${idx})" aria-label="Remove item" class="text-gray-400 hover:text-blaze p-1">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                        <span class="inline-block bg-cream border border-charcoal text-xs font-black px-2 py-0.5 rounded-md my-1">${t.cartSizeLabel} ${item.size}</span>
+                        <div class="flex items-center justify-between mt-1">
+                            <span class="font-black text-sm">${item.price * item.quantity} ${t.currency}</span>
+                            <div class="flex items-center border-2 border-charcoal rounded-lg overflow-hidden bg-cream">
+                                <button type="button" onclick="updateQuantity(${idx}, -1)" class="px-2.5 py-0.5 font-black hover:bg-lime">-</button>
+                                <span class="px-2.5 py-0.5 text-xs font-black bg-white border-x border-charcoal">${item.quantity}</span>
+                                <button type="button" onclick="updateQuantity(${idx}, 1)" class="px-2.5 py-0.5 font-black hover:bg-lime">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discount = promoApplied ? Math.round(subtotal * 0.10) : 0;
+            const discountedSubtotal = subtotal - discount;
+            const shipping = discountedSubtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_COST;
+            const total = discountedSubtotal + shipping;
+
+            document.getElementById('cart-subtotal').textContent = `${subtotal} ${t.currency}`;
+            document.getElementById('cart-shipping').textContent = shipping === 0 ? t.freeShipping : `${shipping} ${t.currency}`;
+            document.getElementById('cart-total').textContent = `${total} ${t.currency}`;
+
+            const discountRow = document.getElementById('discount-row');
+            if (promoApplied) {
+                discountRow.classList.remove('hidden');
+                discountRow.classList.add('flex');
+                document.getElementById('cart-discount').textContent = `- ${discount} ${t.currency}`;
+            } else {
+                discountRow.classList.add('hidden');
+                discountRow.classList.remove('flex');
+            }
+
+            lucide.createIcons();
+        }
+
+        // Promo code KARKABA10
+        document.getElementById('apply-promo-btn').addEventListener('click', () => {
+            const input = document.getElementById('promo-input').value.trim().toUpperCase();
+            const msg = document.getElementById('promo-message');
+            const t = i18n[currentLang];
+            msg.classList.remove('hidden');
+
+            if (input === PROMO_CODE) {
+                promoApplied = true;
+                msg.textContent = t.promoSuccess;
+                msg.className = 'text-xs font-black mt-1.5 text-green-600';
+            } else {
+                promoApplied = false;
+                msg.textContent = t.promoError;
+                msg.className = 'text-xs font-black mt-1.5 text-blaze';
+            }
+            updateCartUI();
+        });
+
+        // Directional Cart Drawer (slides smoothly from the right edge in RTL and from the left edge in LTR)
+        const cartDrawer = document.getElementById('cart-drawer');
+        const cartOverlay = document.getElementById('cart-overlay');
+
+        function applyDrawerSideStyles() {
+            const isRtl = document.documentElement.dir === 'rtl';
+            if (isRtl) {
+                cartDrawer.style.left = 'auto';
+                cartDrawer.style.right = '0';
+                cartDrawer.style.borderLeft = '2px solid #121212';
+                cartDrawer.style.borderRight = 'none';
+            } else {
+                cartDrawer.style.right = 'auto';
+                cartDrawer.style.left = '0';
+                cartDrawer.style.borderRight = '2px solid #121212';
+                cartDrawer.style.borderLeft = 'none';
+            }
+        }
+
+        function setCartClosedTransform() {
+            applyDrawerSideStyles();
+            const isRtl = document.documentElement.dir === 'rtl';
+            cartDrawer.style.transform = isRtl ? 'translateX(100%)' : 'translateX(-100%)';
+        }
+
+        function openCart() {
+            applyDrawerSideStyles();
+            cartOverlay.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                cartDrawer.style.transform = 'translateX(0%)';
+            });
+        }
+
+        function closeCart() {
+            setCartClosedTransform();
+            cartOverlay.classList.add('hidden');
+        }
+
+        setCartClosedTransform();
+
+        document.getElementById('cart-open-btn').addEventListener('click', openCart);
+        document.getElementById('cart-close-btn').addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', closeCart);
+
+        // Checkout sends the order details to either WhatsApp number.
+        const checkoutModal = document.getElementById('checkout-modal');
+        const ORDER_WHATSAPP_1 = '201013014468';
+        const ORDER_WHATSAPP_2 = '201125183531';
+        let pendingOrderWhatsAppMessage = '';
+
+        function openOrderWhatsApp(number) {
+            if (!pendingOrderWhatsAppMessage) return;
+            const url = `https://wa.me/${number}?text=${encodeURIComponent(pendingOrderWhatsAppMessage)}`;
+            window.open(url, '_blank');
+        }
+        document.getElementById('send-order-whatsapp-1').addEventListener('click', () => openOrderWhatsApp(ORDER_WHATSAPP_1));
+        document.getElementById('send-order-whatsapp-2').addEventListener('click', () => openOrderWhatsApp(ORDER_WHATSAPP_2));
+
+        const customerDetailsModal = document.getElementById('customer-details-modal');
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            if (cart.length === 0) return;
+            closeCart();
+            customerDetailsModal.classList.remove('hidden');
+            customerDetailsModal.classList.add('flex');
+        });
+        function closeCustomerDetails() {
+            customerDetailsModal.classList.add('hidden');
+            customerDetailsModal.classList.remove('flex');
+        }
+        document.getElementById('customer-details-close').addEventListener('click', closeCustomerDetails);
+        customerDetailsModal.addEventListener('click', (e) => { if (e.target === customerDetailsModal) closeCustomerDetails(); });
+        document.getElementById('customer-details-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (cart.length === 0) return;
+            const customerName = document.getElementById('customer-name').value.trim();
+            const customerPhone = document.getElementById('customer-phone').value.trim();
+            const customerAddress = document.getElementById('customer-address').value.trim();
+            if (!customerName || !customerPhone || !customerAddress) return;
+            const orderNum = '#KMT-' + Math.floor(1000 + Math.random() * 9000);
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discount = promoApplied ? Math.round(subtotal * 0.10) : 0;
+            const discountedSubtotal = subtotal - discount;
+            const shipping = discountedSubtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_COST;
+            const total = discountedSubtotal + shipping;
+            const orderItems = cart.map(item => {
+                const rawProd = products.find(p => p.id === item.id);
+                const localized = rawProd ? getProductLocalized(rawProd, currentLang) : { name: `Product ${item.id}` };
+                return `- ${localized.name} | مقاس: ${item.size} | كمية: ${item.quantity} | ${item.price * item.quantity} ${i18n[currentLang].currency}`;
+            }).join('\n');
+            pendingOrderWhatsAppMessage = `طلب جديد من Karkaba ${orderNum}\n\nالاسم: ${customerName}\nرقم العميل: ${customerPhone}\nالعنوان: ${customerAddress}\n\nالمنتجات:\n${orderItems}\n\nالإجمالي قبل الخصم: ${subtotal} ${i18n[currentLang].currency}\nالخصم: ${discount} ${i18n[currentLang].currency}\nالشحن: ${shipping === 0 ? 'مجاني' : shipping + ' ' + i18n[currentLang].currency}\nالإجمالي المطلوب: ${total} ${i18n[currentLang].currency}\nالدفع: عند الاستلام`;
+            closeCustomerDetails();
+            document.getElementById('order-number').textContent = orderNum;
+            checkoutModal.classList.remove('hidden');
+            checkoutModal.classList.add('flex');
+            cart = [];
+            promoApplied = false;
+            document.getElementById('promo-input').value = '';
+            document.getElementById('promo-message').classList.add('hidden');
+            updateCartUI();
+            showToast(i18n[currentLang].toastOrderConfirmed(orderNum));
+        });
+
+        document.getElementById('close-checkout-modal').addEventListener('click', () => {
+            checkoutModal.classList.add('hidden');
+            checkoutModal.classList.remove('flex');
+        });
+
+        // Mobile menu & newsletter
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            e.target.reset();
+            showToast(i18n[currentLang].toastNewsletter);
+        });
+
+        // Toast notification helper
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-charcoal text-lime border-2 border-lime px-4 py-3 rounded-2xl shadow-brutal font-bold text-sm flex items-center gap-2 transform translate-y-2 opacity-0 transition-all duration-300';
+            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 shrink-0"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            });
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Dark mode toggle beneath the hamburger menu button
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+        function updateDarkModeButtonText() {
+            const t = i18n[currentLang];
+            const labelEl = document.getElementById('dark-mode-label');
+            const iconEl = document.getElementById('dark-mode-icon');
+            if (labelEl) {
+                labelEl.textContent = isDarkMode ? t.lightLabel : t.darkLabel;
+            }
+            if (iconEl) {
+                iconEl.setAttribute('data-lucide', isDarkMode ? 'sun' : 'moon');
+                lucide.createIcons();
+            }
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            document.documentElement.classList.toggle('dark', isDarkMode);
+            updateDarkModeButtonText();
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            setLanguage('ar');
+        });
+    </script>
+</body>
+</html>
